@@ -1,0 +1,78 @@
+{
+  "pluginAlias": "HttpClimateSensor",
+  "pluginType": "platform",
+  "singular": false,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "sensors": {
+        "title": "Sensors",
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "endpoint": {
+              "type": "string",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "url": {
+                    "type": "string"
+                  },
+                  "method": {
+                    "type": "string"
+                  },
+                  "headers": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "value": {
+                          "type": "string"
+                        }
+                      },
+                      "required": []
+                    }
+                  }
+                },
+                "required": [
+                  "url"
+                ]
+              }
+            },
+            "updateInterval": {
+              "type": "integer"
+            },
+            "temperature": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string"
+                }
+              }
+            },
+            "humidity": {
+              "type": "object",
+              "properties": {
+                "key": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "name",
+              "endpoint",
+              "updateInterval"
+            ]
+          }
+        }
+      }
+    }
+  }
+}
