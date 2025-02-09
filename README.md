@@ -7,7 +7,7 @@ Climate sensors enabled through this plugin appear as temperature and humidity s
 ### Installation
 
 1. Install [Homebridge](https://homebridge.io/).
-1. Install the plugin.
+1. Install the plugin: `npm install -g homebridge-http-climate-sensor`.
 1. Configure the sensors in `config.json`.
 
 ### Configuration
