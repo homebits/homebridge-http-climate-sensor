@@ -2,7 +2,7 @@
   "name": "homebridge-http-climate-sensor",
   "displayName": "HTTP Climate Sensor",
   "type": "module",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Homebridge plugin for temperature and humidity sensors that expose their readings over HTTP.",
   "author": "Jim Liu",
   "license": "Apache-2.0",
@@ -29,13 +29,13 @@
     "watch": "npm run build && npm link && nodemon"
   },
   "devDependencies": {
-    "@eslint/js": "^9.9.0",
+    "@eslint/js": "^9.39.0",
     "@types/eslint__js": "^8.42.3",
     "@types/node": "^22.2.0",
-    "eslint": "^9.9.0",
+    "eslint": "^9.39.0",
     "homebridge": "^2.0.0-beta.0",
     "nodemon": "^3.1.4",
-    "rimraf": "^6.0.1",
+    "rimraf": "^6.1.2",
     "ts-node": "^10.9.2",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.0.1"
