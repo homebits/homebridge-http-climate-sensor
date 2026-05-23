@@ -1,0 +1,37 @@
+name: Node.js Publish
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to release'
+        required: true
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  publish:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v6
+    - uses: actions/setup-node@v6
+      with:
+        node-version: '24.x'
+        registry-url: 'https://registry.npmjs.org'
+        package-manager-cache: false  # never use caching in release builds
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm run test --if-present
+    - run: |
+        TAG="${{ github.event.inputs.tag || github.ref_name }}"
+        PKG_VERSION=$(node -p "require('./package.json').version")
+        if [ "$TAG" != "v${PKG_VERSION}" ]; then
+          echo "::error::Tag '${TAG}' does not match package.json version 'v${PKG_VERSION}'"
+          exit 1
+        fi
+
+    - run: npm publish
